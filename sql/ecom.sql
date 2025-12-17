@@ -21,8 +21,8 @@ given_on date not null,
 product_code bigint not null,
 customer_code bigint not null,
 feed_back varchar(200) not null,
-foreign key (product_code) refrences product(code),
-foreign key (customer_code) refrences customer(code),
+foreign key (product_code) references product(code),
+foreign key (customer_code) references customer(code)
 )engine=InnoDB;
 create table administrator
 (
@@ -36,7 +36,7 @@ id bigint primary key auto_increment,
 order_date date not null,
 customer_code bigint not null,
 total_amount decimal(10,2) not null,
-foreign key (customer_code) refrences customer(code)
+foreign key (customer_code) references customer(code)
 )engine=InnoDB;
 create table purchase_order_item
 (
@@ -45,6 +45,6 @@ product_code bigint,
 quantity int not null,
 price decimal(10,2) not null,
 primary key (order_id,product_code),
-foreign key (order_id) refrences purchase_order(id),
-foreign key (product_code) refrences product(code),
+foreign key (order_id) references purchase_order(id),
+foreign key (product_code) references product(code)
 )engine=InnoDB;
